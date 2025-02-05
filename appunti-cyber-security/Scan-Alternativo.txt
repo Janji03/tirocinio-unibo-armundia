@@ -1,0 +1,40 @@
+un metodo alternativo a nmap 
+
+script bash per trovare tutte le porte aperte di un host 
+#!/bin/bash
+
+function ctrl_c() {
+    echo -e "\n\n[!] Uscendo...\n"
+    exit 1
+}
+
+# Funzione per verificare lo stato di una porta su un host
+function checkport() {
+    exec 3<> /dev/tcp/$1/$2 2>/dev/null
+    
+    if [ $? -eq 0 ]; then 
+        echo "[+] Host $1 - Port $2 è aperta"
+    fi
+    
+    exec 3<&-
+    exec 3>&-
+}
+
+# Gestione dell'interruzione da tastiera CTRL+C
+trap ctrl_c SIGINT
+
+# Controlla se è stato fornito un indirizzo IP come argomento
+if [ "$1" ]; then
+    # Array di porte da 1 a 65535
+    declare -a ports=($(seq 1 65535))
+
+    # Loop per controllare tutte le porte in parallelo
+    for port in "${ports[@]}"; do
+        checkport "$1" "$port" &
+    done
+
+    # Aspetta che tutti i processi in background finiscano
+    wait
+else
+    echo -e "\nErrore: inserire un indirizzo IP come argomento\n"
+fi

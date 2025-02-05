@@ -1,0 +1,49 @@
+nmap scripts 
+
+scripts di nmap sono .nse 
+ci sono circa 610 scripts .nse di nmap 
+
+-sC scripts basici
+eccone alcuni 
+ftp-anon.nse = ricerca per porta con servizio ftp (file transef protocol)
+http-robots.txt.nse = robots.txt è un file che contiene tutte le directory presenti su un sito 
+
+--scripts : puoi indicare un script inconcreto 
+
+gli script sono suddivisi in categorie e ci sono scripts che sono presenti in piu categorie 
+
+comando per vedere le categorie : locate .nse | xargs grep "categories" | grep -oP '".*?"' | sort -u
+lista delle categorie 
+"auth"
+"broadcast"
+"brute"
+"default"
+"discovery"
+"dos"
+"exploit"
+"external"
+"fuzzer"
+"intrusive"
+"malware"
+"safe"
+"version"
+"vuln"
+
+creazione di un server con python sulla porta 80 : python3 -m http.server 80
+
+sudo lsof -i:80 :è utilizzato per elencare le connessioni di rete attive che stanno utilizzando la porta 80 (HTTP) sul tuo sistema.
+
+questo è l'output 
+COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+python3 6951 kali    3u  IPv4  46329      0t0  TCP *:http (LISTEN)
+
+quindi ho lanciato un server in locale con python in ascolto sulla porta 80 con dentro una directory admin 
+
+ora faccio fuz (ovvero un brute force con dizionario ) con questo comando :  nmap -p80 10.0.2.15 --script http-enum 
+questo comando prova a vedere se  nel sito web ci sono delle delle directory con nomi noti (usa un dizionario) genera un sacco di 404 (tutte le directory che ha provato ma che non esistono)
+quando incontra uno status code 200 ritorna la directory 
+
+
+nmap scripts struttura 
+come sono strutturati gli script Lua 
+

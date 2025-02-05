@@ -1,0 +1,86 @@
+Nmap 
+
+firewall: 
+barriera tra rete interna e rete esterna non sicura (internet) che filtra i pacchetti in base a delle regole 
+quando con nmap troviamo delle porte su un dispositivo, possono essere aperte, chiuse, filtrate (non si puo stabilire se sono aperte o chiuse) 
+ovvero coperte da firewall 
+
+-f : manda pacchetti frammentati per evadere il firewall 
+
+
+IDS : intrution detector system (sistema che rileva le intrusioni e gli accessi non autorizzati)
+-D : decoy scan (permette di mascherare l'indirizzo IP reale della macchina che sta eseguendo la scansione,
+facendo sembrare che la scansione provenga da più indirizzi IP (decoy). In questo modo, diventa più difficile per il target identificare quale IP ha avviato realmente la scansione.)
+
+--source-port [porta] : Quando esegui una scansione con Nmap, di default il software sceglie automaticamente una porta di origine per i pacchetti che invia.
+Tuttavia, con l'opzione --source-port, puoi forzare Nmap a usare una specifica porta di origine.
+Questo può aiutare a sfruttare configurazioni di rete che trattano in modo differente il traffico proveniente da determinate porte.
+
+--data-length : aggiunge payload alla lunghezza originale del pacchetto. Quando esegui una scansione, Nmap invia pacchetti di rete ai target specificati.
+Di default, questi pacchetti possono avere una dimensione fissa che alcuni IDS o firewall potrebbero riconoscere come potenzialmente dannosi o sospetti.
+Utilizzando --data-length, puoi aggiungere un payload di dati ai pacchetti, modificandone la lunghezza e rendendo più difficile il rilevamento basato sulle dimensioni del pacchetto.
+
+
+--spoof-mac [indirizzo mac] : Quando utilizzi --spoof-mac, Nmap cambia l'indirizzo MAC della tua interfaccia di rete in modo che i pacchetti sembrino provenire da un dispositivo diverso.
+Questo può aiutare a evitare il rilevamento o a superare restrizioni che si basano sugli indirizzi MAC.
+Le opzioni per --spoof-mac possono essere:
+Vendor name: Spoofa un indirizzo MAC associato a un determinato produttore. (esempio Apple, DELL)
+Specific MAC: Spoofa un indirizzo MAC specifico. (esempio 00:11:22:33:44:55)
+Random: Genera un indirizzo MAC casuale. (0)
+
+-sS : non chiude il three-way-handshake (non manda ultimo ACK). la scansione diventa piu silenziosa perchè non chiudendo il twh non rimangono log sul firewall
+(in quanto il firewall di solito registra nei log solo le connessione che hanno completato il twh ma noi la stiamo chiudendo prima di completarla)
+
+--min-rate 5000 : non deve passare meno di 5000 pacchetti al secondo 
+
+-oN , -oG : tipi di formato di file in cui salvare la enumerazione di nmap 
+
+
+
+
+Concetti di struttura pacchetti e differenza tra firewall e IDS 
+
+struttura di un pacchetto: 
+
+[Header Ethernet]
+    - Indirizzo MAC Destinazione
+    - Indirizzo MAC Sorgente
+    - Tipo di Protocollo
+
+[Header IP]
+    - Versione
+    - Lunghezza Intestazione
+    - Tipo di Servizio
+    - Lunghezza Totale
+    - Identificazione
+    - Flag e Offset di Frammento
+    - TTL
+    - Protocollo
+    - Checksum dell'Intestazione
+    - Indirizzo IP Sorgente
+    - Indirizzo IP Destinazione
+    - Opzioni e Padding
+
+[Header TCP]
+    - Porta Sorgente
+    - Porta Destinazione
+    - Numero di Sequenza
+    - Numero di Acknowledgment
+    - Lunghezza dell'Intestazione
+    - Flag di Riserva e Flag di Controllo
+    - Finestra
+    - Checksum
+    - Puntatore Urgente
+    - Opzioni e Padding
+
+[Payload TCP]
+    - Dati dell'applicazione
+
+Confronto tra Firewall e IDS
+Caratteristica	                       Firewall	                                                         IDS
+Scopo	                               Controllare e filtrare il traffico di rete                        Monitorare e rilevare attività sospette
+Tipo di Azione	                       Proattiva (blocca traffico)	                                     Reattiva (rileva e segnala minacce)
+Posizione	                           Perimetro di rete, tra reti	                                     Interno ed esterno alla rete
+Tecniche Utilizzate                	   Filtraggio pacchetti, proxy, ispezione di stato	                 Rilevamento basato su firme e anomalie
+Prevenzione Attiva	                   Sì	                                                             No (a meno che non sia un IDPS)
+Registrazione degli Eventi	           Limitata, focus sul controllo del traffico	                     Estensiva, focus su attività sospette

@@ -1,0 +1,55 @@
+Subnetting
+permette di dividere una rete in piu reti 
+Classi di Rete 
+A-B-C
+come calcolare dato un indirizzo IP e netmask:
+numero di host indirizzabili
+IP Network
+Broadcast 
+Router 
+Firts Host 
+Last Host 
+sito per controllare i calcoli: https://blog.jodies.de/ipcalc
+
+NMAP:
+comandi che riassumono tutto:
+nmap -p- --open -v -n -Pn (indirizzo IP) : trovo le porte aperte il piu velocemente possibile 
+nmap -p(Numero di porta, Numero di porta, ...) -sV -sC : trovo le versioni dei protcolli dei servizi aperti e controllo se ci sono delle vulnerabilità
+
+
+comando route -n ritorna il default gateway della tua rete 
+comando nmap -p- (indirizzo IP) enumera tutte le porte del dispositivo con quell'IP 
+serve per vedere quali sono aperte. ti ritorna lo stato dell'host (host is up/down), le porte aperte specificando
+numero e protocollo (135/tcp), stato (open) , tipo di servizio 
+
+il numero di porte filtrate Not shown: 998 filtered tcp ports (no-response) ad esempio coperte da firewall
+
+nmap --top-ports n scannerizza le n porte piu comuni 
+
+riflessione sulle porte filtrate: prima si guarda se ci sono porte aperte e si attaccano quelle altrimenti si va sulle filtrate 
+--open (ritorna solo le porte aperte)
+-v (verbose) inizia a generare l'ouput mentre sta ancora facendo la scansione 
+-n non risolve il DNS (risolvere il DNS richiede tempo con questo parametro siamo piu veloci)
+-T(0-5) parametro che regolarizza la velocità della scansione (di base è impostato a 3) più è basso il valore di questo parametro più si è lenti e furtivi 
+viceversa più è alto più si è veloci e meno furtivi 
+-sT : ripetiamo il three-way-handshake SYN ->  se risponde RST(reset) la porta è chiusa altrimenti SYN/ACK la porta è aperta -> ACK 
+con questo parametro facciamo scansioni di porte TCP.  nmap chiede al sistema operativo di stabilire una connessione completa (3-way handshake) con ogni porta del target.
+Se la connessione viene stabilita correttamente, la porta è considerata aperta. Se la connessione è rifiutata o non può essere stabilita, la porta è considerata chiusa o filtrata.
+-Pn : serve a contollare se l'host è up (attivo)
+
+ sudo tcpdump -i tun0 -w Cattura.cap -v con questo comando ti mette in Cattura.cap (file analizzabile con wireshark) quello che cattura quando fai nmap 
+
+ wireshark &> /dev/null & disown spiegazione comando: 
+ wireshark & : avviato wireshark e eseguito in background
+ /dev/null : Tutto l'output generato da Wireshark, sia normale che di errore, viene reindirizzato a /dev/null, quindi non vedrai nessun output o errore nel terminale.
+ & disown : Wireshark viene disassociato dalla shell corrente, quindi continuerà a funzionare anche se la shell viene chiusa.
+
+ queste viste fino ora sono scansioni per il protocollo TCP 
+
+ vediamo UDP 
+ -sU  
+ -O (cerca di capire il sistema operativo che c'è su quell IP )
+
+sudo arp-scan -I eth0 --localnet con questo fai la scansione della tua rete locale, si puo anche fare con NMAP 
+-sV : ritorna la versione del protocollo e del servizio
+-sC : controlla se ci sono vulnerabilità

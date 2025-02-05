@@ -1,0 +1,47 @@
+Concetti Base:
+
+//setxkbmap it
+
+Indirizzi IP : 
+comando if config
+IP è etichetta assegnata ad ogni device nel protocollo di internet 4 byte 32 bits
+hostname -I : mostra il tuo indirizzo IP 
+echo "$(echo "obase = 2 ; 10" | bc).0.2.15" converte 10 in binario 
+
+Indirizzo MAC :
+ifconfig 48bits 
+ether 08:00:27:d2:26:79 
+08:00:27(servono a riconoscere il produttore) OUI (Organizational Unique Identifier)
+d2:26:79  (Network Interface Specific Controller)
+arp-scan -I eth0 --localnet (scansione della rete locale eth0) : ritorna la lista dei dispositivi nella rete locale 
+con associato IP e MAC 
+
+
+Protcollo TCP 
+three-way-handshake
+SYN > SYN ACK > ACK (si vede sui wireshark)
+
+Protocollo UDP 
+
+
+Servizi 
+servizi nelle porte. numero totale di porte 65535
+porte e servizi più comuni divisi per protocolli:
+TCP 
+21 FTP (trasferimento file)
+22 SSH ()
+23 TELNET (ci permette di accedere da remoto ad una macchina)
+25 SMTP (invio e recizione di mail)
+53 DNS
+80 HTTP 
+443 HTTPS 
+110 POP3
+139,445 SMB 
+143 IMAP 
+
+UDP 
+53 DNS 
+69 TFTP 
+161 SMNP 
+
+Modello OSI 

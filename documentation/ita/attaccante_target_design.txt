@@ -1,0 +1,89 @@
+Simulazione di un Attacco e Difesa
+
+1. Introduzione
+Questa documentazione descrive in dettaglio la simulazione di un attacco e delle relative contromisure difensive.
+
+---
+
+ATTACCANTE:
+
+2. Simulazione di un Attacco
+2.1 Scansione delle Porte e Identificazione dei Servizi
+
+La scansione delle porte permette a un attaccante di identificare i servizi attivi su una macchina target. 
+Strumenti come Nmap possono rivelare informazioni utili come versioni dei servizi e potenziali vulnerabilità.
+
+Implementazione:
+1. Aprire un terminale su Kali Linux.
+2. Eseguire Nmap per una scansione base:
+   nmap -sV -O <IP_TARGET>
+3. Eseguire una scansione delle vulnerabilità con script avanzati:
+   nmap --script vuln <IP_TARGET>
+
+2.2 Attacco Brute Force su SSH
+
+Un attacco brute force cerca di indovinare la password di un servizio, come SSH, provando un elenco di credenziali comuni.
+
+Implementazione:
+1. Usare Hydra per tentare un attacco brute force:
+   hydra -l admin -P rockyou.txt ssh://<IP_TARGET>
+2. Se l'attacco riesce, accedere alla macchina target:
+   ssh admin@<IP_TARGET>
+
+2.3 SQL Injection su un'Applicazione Web
+
+L'SQL Injection sfrutta vulnerabilità nelle query SQL per manipolare il database di un'applicazione web.
+
+Implementazione:
+1. Identificare un campo di input vulnerabile.
+2. Utilizzare SQLMap per automatizzare il test:
+   sqlmap -u "http://<IP_TARGET>/login.php?id=1" --dbs
+3. Estrarre i dati del database:
+   sqlmap -u "http://<IP_TARGET>/login.php?id=1" --dump
+
+---
+
+
+TARGET:
+
+3. Contromisure Difensive
+3.1 Protezione contro la Scansione delle Porte
+
+L'uso di firewall e sistemi di rilevamento delle intrusioni può bloccare la scansione delle porte e identificare attività sospette.
+
+Implementazione:
+1. Configurare iptables per bloccare traffico sospetto:
+   sudo iptables -A INPUT -p tcp --dport 22 -s <IP_KALI> -j DROP
+2. Installare e configurare fail2ban:
+   sudo apt install fail2ban
+   sudo systemctl enable fail2ban
+
+3.2 Protezione contro Brute Force
+Teoria:
+L'autenticazione a due fattori e il blocco degli IP dopo tentativi falliti possono mitigare gli attacchi brute force.
+
+Implementazione:
+1. Configurare fail2ban per bloccare tentativi ripetuti:
+   sudo nano /etc/fail2ban/jail.local
+   Aggiungere:
+   [sshd]
+   enabled = true
+   maxretry = 3
+   bantime = 600
+2. Riavviare fail2ban:
+   sudo systemctl restart fail2ban
+
+3.3 Protezione contro SQL Injection
+
+L'uso di query parametrizzate e il filtraggio dell'input utente possono prevenire SQL Injection.
+
+Implementazione:
+1. Modificare il codice del database per usare query parametrizzate:
+   cursor.execute("SELECT * FROM users WHERE username = ?", (user_input,))
+2. Implementare un Web Application Firewall (WAF) per filtrare richieste sospette:
+   sudo apt install modsecurity
+
+---
+
+
+

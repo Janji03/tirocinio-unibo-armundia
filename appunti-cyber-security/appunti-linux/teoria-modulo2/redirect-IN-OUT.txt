@@ -1,0 +1,19 @@
+
+
+Comandi:
+echo "testo" > file.txt = invia il testo "testo" su file.txt che se non esiste in quella directory viene creato 
+echo "testo" >> file.txt = aggiunge una riga con il testo "testo" 
+2> = ridirizionare gli errori 
+&> = ridirizionare sia gli errori sia il testo 
+>  = sovrascrive quello che inviamo 
+>>  = aggiunge 
+| = pipe (serve a concatenare più comandi)
+
+
+
+Appunti:
+2> si usa per ri-indirizzare gli errori (non so ancora perchè va fatto) e di solito si mandano al /dev/null
+il /dev/null è un file virtuale che non memorizza quello che gli viene inviato 
+pipe funzione come un canale che collega comandi dove l'uscita (output) di un comando diventa l'entrata (input) del successivo
+(è per questo che per trovare le flag si faceva find blablabla | cat ovvero trova la flag e leggila )
+ovviamente col pipe possiamo concatenare tutti i comandi che vogliamo ma soltanto l'ultimo va sul display 

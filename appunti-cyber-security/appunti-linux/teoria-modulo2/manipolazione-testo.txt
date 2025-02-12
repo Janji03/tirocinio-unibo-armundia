@@ -1,0 +1,45 @@
+manipolazione testo
+
+
+
+Comandi:
+echo = ripete un testo 
+echo -e = legge anche i caratteri speciali
+echo -t = tabulazione
+cat = legge un file o una cartella senza entrarci 
+cat -n = mette un conteggio di fianco ad ogni linea letta da cat 
+more = legge la prima parte del file e poi ti chiede se vuoi continuare a leggere 
+less = uguale a more ma se premi h    (puoi anche scrivere di quante linee avanzare)
+head = legge prime linee del file 
+tail = legge ultime linee del file 
+cut = ci mostra solo una parte della linea (taglio verticale)
+cut -c1 = ci mostra solo il primo carattere (posso mettere qualsiasi numero su c)
+cut -c1-10 = mostra da carattere 1 a 10 di ogni linea 
+cut -c1,10 = mostra il carattere 1 e il carattere 10
+cut -d -f = con d definisco il carattere di separazione con f indico quale campo vedere (f1 primo campo f2 secondo,..etc)
+grep = va a prendere una parola 
+grep -v = mostra quello che non coincide con cosa abbiamo inserito 
+grep -l = indica solo il nome del file e dove l'ha trovato
+gerep -n = indica il numero della linea 
+grep -c = mostra la quantità delle linee che combaciano 
+grep -r = ricerca ricorsiva nella directory dove siamo e tutte quelle sotto 
+grep -w = (fatto esempio negli appunti)
+grep -i = non fa differenza tra maiuscole e minuscole 
+
+
+
+Appunti:
+tabulazione vuol dire TAB 
+$USER $PATH sono variabili assolute non vengono interpretate con '' ma con ""
+/n a capo 
+/t tab 
+con echo posso fare operazioni esempio:  echo "prodotto $((5*5))" necessita sempre ""
+cat ha un difetto ovvero che ti apre il file direttamente all'ultima linea 
+si puo usare more se si vuole partire dall'inizio del file 
+less uguale a more 
+head e tail possono prendere il numero di linee esempio se voglio le prime dieci linee del file faccio head -n1 path 
+-q parametro che toglie il nome del file 
+con cut posso combinare trattini(-) e virgole(,)
+con grep puoi fare ricerche veramente chirurgiche 
+-w parametro che dice di cercare esattamente quello che ho scritto esempio: se faccio grep 100 path mi trova anche i numeri che "contengono" 100 tipo 1000
+se faccio invece grep -w 100 path trova solo le righe che contengono 100 

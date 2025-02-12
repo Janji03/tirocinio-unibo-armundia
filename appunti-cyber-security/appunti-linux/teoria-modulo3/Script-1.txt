@@ -1,0 +1,26 @@
+Script prima parte 
+
+
+comandi:
+.sh (file bash)
+chmod +x file.sh (per poter eseguirlo da shell)
+
+
+appunti:
+shell script = file di testo che contiene vari comandi interpretabili e eseguibili dalla shell 
+script in bash : interpretabili dalla shell 
+#!/bin/bash : va messa perchè indica il percorso all'interprete 
+# commento
+con $ si prendono i parametri 
+$1 prende 1 parametro 
+$# ritorna il numero totale di parametri 
+$* mostra tutti i parametri 
+$0 ci da il nome dello script 
+$$ PID processo che viene assegnato allo script
+$? risultato dell'ultimo processo eseguito
+
+Variabili di Ambiente 
+$PATH 
+printenv (stampa variabili di ambiente)
+$USER
+

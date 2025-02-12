@@ -1,0 +1,29 @@
+Espressioni Regolari
+
+
+comandi:
+grep ^a = cercami parole che ^iniziano con la a
+grep a$ = parole che finiscono con la a 
+grep c[aei]s[ao] = parole che iniziano con la c poi hanno una tra aei poi una s poi una tra ao esempio: caso, ciso, cesa
+
+grep ^c[aei]s..[aort]$ /usr/share/dict/american-english : come prima ma dopo la s ci devono essere due lettere(qualsiasi)
+
+[^aei] ^ dentro [] è la negazione (non ci devono essere quelle lettere)
+grep -E '^[h-q]{8}$ parole che iniziano con h-q lunghe 8 caratteri
+grep -E '^[h-q]{8,}$ parole che iniziano con h-q lunhe per lo meno 8 caretteri
+grep -E '^[h-q]{,8}$ parole che iniziano con h-q lunhe al massimo 8
+
+
+appunti:
+espressioni regolari si usano per creare espressioni (vanno a braccetto con grep e sed)
+
+ripasso caratteri speciali :
+^ inizio riga 
+$ fine riga 
+. qualsiasi carattere 
+() sequenza di caratteri 
+[] intervalli e classi di caratteri 
+| OR 
+\ annula il metacarattere successivo
+
+

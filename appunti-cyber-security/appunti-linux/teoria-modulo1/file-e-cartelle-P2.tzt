@@ -1,0 +1,22 @@
+Directory 
+
+
+Comandi:
+mkdir -p cartella-inesistente/sotto-cartella = te le crea entrambe se la prima non esiste 
+rm -r = rimuovi cartella 
+rm = rimuovi file 
+touch = crea un file 
+mv = muovere file 
+cp = copy file (cosa voglio copiare e dove)
+cp -r = copia cartella 
+
+
+
+Appunti:
+se rimuovi una cartella con dentro altre robe rimuove tutto e non ti avvisa 
+sintassi di mv (per spostare) = mv file da spostare  /percorso assoluto
+sintassi di mv (per cambiare nome) = mv file nuovo-nome 
+mv puo anche spostare e rinominare cartelle
+nella cartella home può scrivere e spostare cartelle solo l'amministratore 
+home contiene tutti gli utenti 
+si possono copiare piu cartelle e file in un solo comando 

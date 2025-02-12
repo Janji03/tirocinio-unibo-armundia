@@ -1,0 +1,37 @@
+TR SED 
+
+comandi:
+tr = sostituisce caratteri
+tr -d a < file.txt = cancella tutte le a in file.txt
+tr -s i < file.txt = cancella tutte le i ripetute(inteso come consecutive) nel file.txt
+
+sed sintassi:
+sed -e(editing) '/parola di inizio, parola di fine/istruzione' file 
+istruzioni su sed : 
+i (inserisci)
+d(delete) 
+p(ripeti)
+c(sostituisci)
+comando un po complesso quindi lascio degli esempi commentati:
+sed -e '1i\ciao' file : inserisce ciao nella prima linea 
+sed -e '1p' file : ripete la prima linea (e poi mostra tutto il resto)
+sed -n -e '1p' file : ripete la prima linea e abortisce il resto
+sed -n -e '1!p' file : mostra tutto tranne la prima linea (perchè c'è il !)
+sed -e '/e/c\D' file : sostituisci con D ogni linea dove è presente una 'e' 
+
+
+
+appunti:
+esempio cambia le a con le e nel file.txt : tr a e < file.txt (serve il minore per dare "l'entrata" nel file)
+si possono anche usare agglomerati di lettere esempio : tr cas ret < file.txt (cambia la parola casa in rete)
+posso anche usare set di lettere tipo b-f (dalla b alla f) 
+si possono anche usare \n \t * 
+tr [:digit:] vuol dire che deve sostituire solo i caratteri numerici 
+tr [:alpha:] vuol dire che deve sostituire tutti i caratteri lettera 
+tr [:space:] vuol dire che deve sostituire tutti i caratteri lettera 
+tr [:lower:] vuol dire che deve sostituire tutti i caratteri minuscoli
+tr [:upper:] vuol dire che deve sostituire tutti i caratteri maiuscoli
+posso usare questi parametri per specificare sia il carattere da sostituire che il carattere sostituente 
+
+
+TR E SED non salvano le azioni sul file 

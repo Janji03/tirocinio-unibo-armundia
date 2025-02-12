@@ -1,0 +1,9 @@
+espressioni regolari 
+
+
+Comandi:
+
+
+Appunti:
+raggrupare espressioni regolare con OR
+DA RIVEDERE

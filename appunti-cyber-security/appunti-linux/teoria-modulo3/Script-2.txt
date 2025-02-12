@@ -1,0 +1,52 @@
+Script (array variabili parametri e altro)
+
+
+comandi:
+
+
+appunti:
+array [-1] prende ultimo elemento dell'array 
+array1=(x y z) Definizione dell'array 'array1' con tre elementi: x, y, z
+lettura
+echo ${array1[0]} ${array1[1]} ${array1[2]}  Stampa gli elementi dell'array 'array1' indicizzati rispettivamente 0, 1, e 2
+
+ altri metodi
+echo ${array1[*]} o ${array1[@]}  Stampa tutti gli elementi dell'array 'array1'
+echo ${#array1[@]} Stampa la lunghezza dell'array 'array1'
+echo ${!array1[@]}  Stampa gli indici degli elementi dell'array 'array1'
+unset array1[1] Rimuove l'elemento dell'array 'array1' con indice 1 (il secondo elemento)
+
+differenza tra "" e '' 
+con '' se metti dentro una variabile non legge il contenuto se metti "" legge il contenuto 
+v1="ciao"
+echo "il contenuto di v1 è $v1"
+echo 'il contenuto di v1 è $v1'
+
+piccolo chiarimento: quando scrivo $1 sto indicando il primo parametro preso in input quando si esegue lo script
+./file-con-parametro.sh valore-parametro
+le chiavi {variabile} servono a non avere incovenienti con le altre variabili 
+esempio:
+se voglio scrivere valore della variabile v1 con un 1 dopo devo fare:
+echo ${v1}1 perchè se srivo $v11 e ho una variabile nominata v11 allora leggerà quella
+
+se voglio passare un parametro che contiene degli spazi devo mettere ""
+./file-con-parametro.sh ciao da gianluca (lo interpreta come 3 parametri)
+./file-con-parametro.sh "ciao da gianluca" (unico parametro)
+
+reminder sui parametri:
+$1 , $2, etc non vanno dichiarati ma li usi quando ti servono nello script e basta 
+quando poi esegui metti i valori in input e lui li interpreta (non c'è bisogno di appogiarsi a nessuna variabile)
+puoi pero anche appogiarti ad una variabile facendo p1=$1
+
+leggere variabili: 
+read variabile
+echo $variabile (per stamparla)
+puoi leggere più variabili insieme read v1 v2 v3 ...etc 
+se dai in input un numero di valori superiore alle variabili allora l'ultima variabile si accola tutti i valori in eccesso
+esempio: 
+read nome cognome
+echo il tuo nome e cognome è $nome $cognome 
+se eseguo questo script così ./file.sh Marco Andrea Dainelli mi stamperà 
+il tuo nome e cognome è Marco Andrea Dainelli 
+perchè la variabile nome prende il valore Marco 
+la variabile cognome prende Andrea + tutto il resto(Dainelli)

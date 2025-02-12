@@ -1,0 +1,28 @@
+operazioni aritmetichee e logiche 
+
+comandi:
+test = controlla le espresioni 
+test -d = controlla se è una directory
+test -gt = controlla due numeri
+test -eq = controlla se due numeri sono uguali
+tet -ge = controlla se il primo è maggiore o uguale al secondo
+test -gt = controlla se il primo è maggiore stretto del secondo
+test -le = controlla se il primo è minore o uguale del secondo
+test -lt = controlla se il primo è minore stretto del secondo
+test -ne = not equal
+
+
+appunti:
+echo $((1+1)) ($ e doppie o triple parentesi per far riconoscere a echo che è un'oprazione)
+variabile di sitema $RANDOM
+echo $((RANDOM%26)) valori nel range 0-25
+espressioni logiche e operatori logici 
+sintassi if
+if [ Condizione ]; then
+    comando 
+elif [ Condizione ]; then 
+    comando 
+else 
+    comando
+fi (per chiudere l'if)
+si puo usare test Condizione oppure [ Condizione ] è uguale 

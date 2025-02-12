@@ -1,0 +1,24 @@
+
+
+
+Comandi:
+apt-get update = aggiorna l'elenco dei pacchetti disponibili  
+apt-get upgrade = installa le versioni piu recenti dei pacchetti 
+apt-cache search nome = cerca se è installato un determinato sofware nel sistema 
+apt-get install nome = installa il software che indichiamo
+apt-get remove nome = disinstalla il software che indichiamo 
+aptitude search nome = cerca tutti i pacchetti correlati ad un software (simile a apt-cache search)
+apt-get purge nome + sudo apt autoremove = togli tutti i pacchetti inutili assocciati al sofware rimosso 
+
+aptitude  = è un programma che ti permette di cercare pacchetti e vedere tantissime informazioni su quelli installati 
+
+synaptic = è un programma package manager che ti permette di gestire tutti i software installati e i loro pacchetti  
+
+--help = dice cosa fa un comando 
+
+Appunti:
+linux usa dei repository (server) da cui scarica file,software,etc
+con questo comando nano /etc/apt/sources.list accedo al file sources.list che contiene i link dei repository da cui il sistema operativo
+scarica i pacchetti software 
+con aptitude possiamo vedere se ci sono ancora pacchetti installati che sono dipendenze di un software che magari abbiamo appena rimosso e
+con purge togliamo tutto e con autoremove togliamo quelli inutili 

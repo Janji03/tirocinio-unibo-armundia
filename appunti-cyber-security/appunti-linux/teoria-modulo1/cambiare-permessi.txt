@@ -1,0 +1,28 @@
+Cambiare i permessi 
+
+
+
+comandi: 
+chmod + w,r,x = aggiunge un permesso al file/cartella
+chmod - w,r,x = toglie un permesso al file/cartella
+chmod u=x  = toglie a user tutti i permessi tranne executive
+
+
+appunti:
+facendo cmod +/- aggiungi e togli a tutti gruppi (User ,group , other)
+possiamo usare i parametri per decidere a quale gruppo cambiare i permessi 
+ovviamente i parametri sono u (user) g(group) o (other)
+u=rwx,g=rwx,o=rwx  da tutti i permessi a tutti i gruppi
+u=,g=,o= toglie tutti i permessi a tutti i gruppi 
+
+chmod con i numeri:
+si usano tre numeri ognugno attribuito a un gruppo esempio chmod 777 sto dando a tutti e tre (user,group,other) il permesso 7
+tabella permessi-numeri:
+0 --- 000
+1 --x 001
+2 -w- 010
+3 -wr 011
+4 r-- 100
+5 r-x 101
+6 rw- 110
+7 rwx 111

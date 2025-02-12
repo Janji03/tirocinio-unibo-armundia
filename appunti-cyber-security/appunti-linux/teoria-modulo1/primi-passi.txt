@@ -1,0 +1,31 @@
+TUTTO SU SHELL
+
+Primi concetti su Utenti e Root :
+
+
+Comandi:
+
+id = tutti gli utenti presenti, >1000 umani, <1000 predefiniti 
+sudo su = per diventare root (amministratore di sistema)ù
+sudo apt-get update = scaricara aggiornamenti 
+sudo apt-get upgrade = abilita gli aggiornamenti
+su nome utente = passi da root a user
+pwd = dice dove sei 
+ls = list (cosa cìè in questa cartella)
+ls -l = lista in verticale e altre informazioni 
+cd = change directory 
+man + comando = è il manuale dei comandi, contiene descrizione comando e combinazioni che puoi fare
+cd senza directory = torna alla home/utente
+ls + directory = lista la cartella 
+ls + directory/sottoDirectory/sottoDirectory/..etc
+clear = pulisci console
+cd .. = torni indietro di una cartella
+
+
+Appunti:
+linux è pensato per avere piu utenti
+(comando e ordine sono sinomini)
+sintassi vuole verbo + complemento
+ls ha tante combinazioni cerca con man quella che ti serve 
+le opzioni di ls non vanno per forza dopo il comando: ls cartella -lt = ls -lt cartella 
+maiuscole e minuscole sono significative 

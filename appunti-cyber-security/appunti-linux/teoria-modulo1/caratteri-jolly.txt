@@ -1,0 +1,25 @@
+Jolly
+
+Comandi:
+*
+?
+df = grandezza del disco e delle partizioni (spazio usato, disponibile, percentuali, etc)
+df -h = dimensioni scritte in modo comprensibile
+du = disk usage (spazio del disco usato per cartelle,file, etc)
+du -hs /percorso = spazio usato da una determinata cartella 
+ln = collegamento duro 
+ln -s = collegamento simbolico
+
+
+Appunti:
+con *f indico tutto quello che c'è nella attuale directory che inizia con f 
+con *.txt indico tutti i file txt nella attuale directory
+con * indico tutto quello che c'è nella attuale directory
+con *.* indico tutti i file che hanno un punto 
+con m* indico tutti i file che iniziano con m 
+con ? sostituisco un carattare di quello che sto cercando 
+possono usare insieme ? e *
+riassunto * indica una sequenza di caratteri mentre ? un solo carattere 
+ln lo uso per creare un collegamento ad esempio ad un file che uso spesso e se non ho voglia
+di scrivere ogni volta il path faccio un collegamento
+sintassi ln : ln /path/ collegamento 

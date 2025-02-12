@@ -1,0 +1,24 @@
+File e Navigazione tra Cartelle
+
+
+Comandi:
+ls -lh = human (grandezza file leggibile)
+ls -ltr = reverse (dal più vecchio al più nuovo)
+ls -la = mostra anche le cartelle nascoste
+cd ../Documents = salto indietro e poi vado in Documents
+cd ../.. = due salti indietro
+mkdir mieFoto =  crea cartella mieFoto
+mkdir mie foto =  crea cartella mie e crea cartella Foto (2 cartella)
+mkdir "mie foto" = crea cartella mie foto
+history = mostra la storia di tutti comandi utilizzati 
+!2060 = esegue il comando della history associato al numero 2060
+
+
+
+
+Appunti:
+concetto di percorso/path 
+percorso relativo (non c'è /) : cd Me
+percorso assoluto (c'è /) : cd gianluca/Desktop/Me/Linux
+con le frecciette navigo nello storico dei comandi che utilizzato
+TAB auto-completa il path 

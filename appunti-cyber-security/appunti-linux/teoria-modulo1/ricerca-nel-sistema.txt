@@ -1,0 +1,35 @@
+ricerche nel sistema 
+
+
+Comandi:
+
+find (percorso) (opzioni) = cerca un file nel sistema in base al percorso e le opzioni che mettiamo
+find . = il punto come percorso significa cerca in questa cartella 
+
+
+Appunti:
+
+opzioni: 
+ci sono tantissime opzioni 
+alcune interessanti:
+-name (specifica il nome)
+-iname (non fa differenza tra maiuscole e minuscole)
+
+-type(tipo di elemento che sto cercando): d directory, f files, I collegamento
+
+-size (le unità di misura sono M per i mega, c per i byte, k kilobyte, G gigabyte)
+
+-perm (tipi di permessi: si usano i numeri esempio find -perm 777)
+
+-group (-user,-group,-other)
+
+-mmin : cerca file che sono stati modifati in tot minuti 
+-mtime : cerca file che sono stati modifati in tot giorni -1(da meno di un giorno) +1(da piu di un giorno)
+
+-exec : ti permette di fare una find e dopo eseguire un comando (ad esempio con find cerco tutti i file di un certo tipo in una cartella 
+e con l'opzione -exec cp li copio in un'altra)
+
+
+
+
+

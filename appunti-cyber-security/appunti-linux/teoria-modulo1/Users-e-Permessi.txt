@@ -1,0 +1,37 @@
+Users e Permessi
+
+Comandi:
+sudo su = diventi root 
+su utente = diventi utente
+whoami = dice che sei 
+groups = dice in che gruppo sei 
+adduser = aggiungi un nuovo utente (solo il root può farlo)
+addgroup = crea nuovo gruppo 
+chown = eseguito da root cambia il proprietario di un file 
+passwd Utente = cambia password
+
+
+Appunti:
+che informazioni abbiamo quando facciamo ls -l:
+
+prima colonna:
+d indica una directory . idica un file 
+permessi: wxr = write,executive,read 
+divisa in 3 blocchi: 
+-il primo sono i permessi dello user(proprietario) su quel file 
+-il secondo sono i permessi del gruppo su quel file 
+-il terzo sono tutti gli altri user (non nel gruppo)
+
+
+seconda colonna : chi è il utente proprietario del file 
+
+
+terza colonna : chi è il gruppo del file 
+
+considerazioni sui permessi:
+- non è concesso 
+lettera è concesso 
+nota come i permessi hanno un concetto diverso se applicati ad una cartella oppure ad un file 
+esempio: permesso read su un file significa leggere quel file mentre su una cartella significa poter listare il contenuto della cartella
+
+

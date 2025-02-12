@@ -1,0 +1,23 @@
+azioni sul testo 
+
+Comandi:
+nano = editor di testo 
+vim = editor di testo piu complesso
+sort = ordina alfabetico o numerico
+sort -r = ordina al contrario 
+sort -n = ordine crescente 
+uniq = tolgie i duplicati consecutivi
+uniq - d = i piu frequenti 
+uniq -c = conta le ripetizioni 
+wc = conta linee, parole, caratteri di un file 
+wc -l = conta solamente le linee 
+wc -w = conta solamente le parole 
+wc -m = conta solamente i caratteri 
+rev = legge da dx a sx (fa revert)
+
+
+
+
+Appunti:
+editor di testo da terminale: nano, vim 
+senza -n il sort ordina guardando i numeri della prima colonna quindi se ho 1190 e 4 mette prima 1190 mentre con -n li ordina per grandezza

@@ -1,0 +1,38 @@
+Apache Tomcat
+Apache Tomcat è un server web open source e un contenitore di servlet che implementa le specifiche Java Servlet e JavaServer Pages (JSP). Sviluppato dalla Apache Software Foundation, Tomcat è ampiamente utilizzato per eseguire applicazioni web basate su Java, grazie alla sua leggerezza e alla facilità di utilizzo.
+
+Funzionalità di Tomcat
+Supporto per Java EE: Tomcat consente l'esecuzione di applicazioni Java EE, fornendo un ambiente robusto per servire servlet e JSP. Questo rende Tomcat una scelta ideale per gli sviluppatori che lavorano con applicazioni enterprise.
+
+Gestione delle Applicazioni: Tomcat gestisce il ciclo di vita delle applicazioni web, che include fasi come l'installazione, il caricamento, l'esecuzione e la rimozione delle applicazioni. Questa gestione semplifica l'amministrazione delle applicazioni e migliora l'efficienza operativa.
+
+Configurabilità: Gli utenti possono configurare vari aspetti del server, come le porte di ascolto, le impostazioni di memoria e le opzioni di sicurezza. Questa flessibilità consente agli amministratori di ottimizzare le prestazioni e la sicurezza del server in base alle esigenze specifiche delle loro applicazioni.
+
+Perché Utilizzarlo nel Penetration Testing
+Ambiente di Test: Tomcat fornisce un ambiente isolato per eseguire applicazioni web, consentendo di testare vulnerabilità in modo controllato. Questo è fondamentale per gli esperti di sicurezza, poiché permette di analizzare il comportamento delle applicazioni in un contesto sicuro senza rischiare di compromettere sistemi di produzione.
+
+Facilità di Distribuzione: La capacità di distribuire rapidamente applicazioni Java, come quelle basate su Struts, rende Tomcat uno strumento ideale per testare le funzionalità di sicurezza di queste applicazioni. Gli utenti possono facilmente caricare e testare nuove versioni di applicazioni o applicazioni di esempio.
+
+Apache Archive Distribution
+Apache Archive Distribution si riferisce alla raccolta di software e versioni passate di progetti sviluppati dalla Apache Software Foundation, archiviati in vari formati, come ZIP o TAR.GZ. Questi archivi forniscono accesso a versioni storiche di software, librerie e documentazione, utili per sviluppatori e tester.
+
+Funzionalità di Apache Archive
+Accesso a Versioni Precedenti: Gli sviluppatori possono scaricare versioni precedenti di software, che possono essere utili per scopi di testing o per analizzare vulnerabilità note in versioni specifiche. Questo è cruciale per identificare e mitigare i rischi associati a versioni obsoleti o vulnerabili.
+
+Sorgenti e Applicazioni: Gli archivi contengono non solo le applicazioni pronte all'uso (file .war, .zip), ma anche il codice sorgente, documentazione e licenze. Questa disponibilità aiuta gli sviluppatori a comprendere meglio le applicazioni e a contribuire al loro miglioramento.
+
+Perché Utilizzarlo nel Penetration Testing
+Selezione della Versione Vulnerabile: Durante il penetration testing, è utile testare versioni specifiche di software note per avere vulnerabilità, come Apache Struts 2.3.20. Utilizzando le distribuzioni archiviate, gli utenti possono facilmente recuperare versioni di interesse e testare la loro sicurezza.
+
+Sperimentazione e Apprendimento: Scaricare e distribuire applicazioni da archivi consente di studiare il comportamento delle applicazioni e identificare potenziali falle di sicurezza. Questo approccio pratico è essenziale per migliorare le competenze degli esperti di sicurezza informatica.
+
+Come Funzionano Insieme
+Quando utilizziamo Tomcat e Apache Archive Distribution insieme, creiamo un potente ambiente di testing:
+
+Installazione e Configurazione: Prima, installiamo Tomcat per creare un ambiente di server web in cui eseguire le applicazioni Java. Questa configurazione iniziale è cruciale per garantire che il server sia pronto a gestire le applicazioni.
+
+Distribuzione delle Applicazioni: Dopo aver scaricato un'applicazione da Apache Archive Distribution, come struts2-showcase.war, la distribuiamo all'interno di Tomcat. Questo consente al server di gestire l'applicazione, fornendo contenuti dinamici e interfacciandosi con gli utenti.
+
+Test delle Vulnerabilità: Una volta che l'applicazione è in esecuzione su Tomcat, possiamo effettuare il penetration testing per identificare vulnerabilità specifiche dell'applicazione o del server. La combinazione di Tomcat e delle applicazioni archiviate offre un ambiente ricco per testare e valutare la sicurezza.
+
+In sintesi, Apache Tomcat e Apache Archive Distribution lavorano insieme per fornire un ambiente completo per lo sviluppo, il deployment e il testing delle applicazioni web. Questo è particolarmente utile durante le fasi di penetration testing, in quanto consente di scoprire e analizzare vulnerabilità in modo efficace e controllato.

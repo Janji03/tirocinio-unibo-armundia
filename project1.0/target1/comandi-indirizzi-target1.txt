@@ -1,0 +1,45 @@
+## **Apache**
+
+### **Comandi**:
+cd /path/to/httpd-2.4.49/
+sudo ./bin/apachectl start
+sudo ./bin/apachectl status
+Verifica configurazione:
+sudo apachectl configtest
+
+### **Indirizzi**:
+http://<IP_VM>/ — Apache Homepage
+http://<IP_VM>/app — Proxy verso Tomcat
+
+
+## **Tomcat**
+
+### **Comandi**:
+sudo /opt/apache-tomcat-8.5.32/bin/startup.sh
+sudo /opt/apache-tomcat-8.5.32/bin/shutdown.sh
+sudo /opt/apache-tomcat-8.5.32/bin/status.sh
+sudo tail -f /opt/apache-tomcat-8.5.32/logs/catalina.out
+
+### Indirizzi:
+http://<IP_VM>:8080/ — Tomcat Homepage
+http://<IP_VM>:8080/manager/html — Tomcat Manager (login: admin/admin)
+http://<IP_VM>:8080/maliciousapp/login.jsp — Pagina di login dell'applicazione vulnerabile
+
+
+## **MySQL**
+
+### **Comandi**:
+sudo systemctl start mysql
+sudo systemctl status mysql
+mysql -u root -p
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root';
+FLUSH PRIVILEGES;
+
+### **Indirizzi**:
+mysql -u root -p
+USE mydb;
+SHOW TABLES;
+SELECT * FROM secrets;
+
+
+

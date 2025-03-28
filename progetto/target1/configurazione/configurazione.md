@@ -4,6 +4,8 @@
 
 Questa istanza è configurata per eseguire un'applicazione web vulnerabile, utilizzando tre principali componenti software: **Apache HTTP Server 2.4.49**, **Apache Tomcat 8.5.32**, e **MySQL 5.7.29**. 
 
+<img src="./immagini/Screenshot (66).png" alt="Logo" width="700"/>
+
 ## **Componente 1: Apache HTTP Server 2.4.49**
 
 Apache HTTP Server, versione 2.4.49, è configurato come server web di front-end per l'applicazione. Apache è configurato per fare da **reverse proxy** per il traffico HTTP diretto verso **Tomcat**, il quale esegue effettivamente l'applicazione web. 
@@ -14,43 +16,32 @@ Apache HTTP Server, versione 2.4.49, è configurato come server web di front-end
 
    - Apache inoltra le richieste per `/app` alla macchina Tomcat sulla porta 8080, dove l'applicazione web è ospitata.
 
+   <img src="./immagini/Screenshot (26).png" alt="Logo" width="500"/>
+
 2. **Vulnerabilità di Apache (CVE-2021-41773)**:
    - La versione 2.4.49 di Apache contiene una vulnerabilità conosciuta come **Directory Traversal (CVE-2021-41773)**, che consente agli attaccanti di accedere a file al di fuori della root web server.
 ---
 
+<img src="./immagini/Screenshot (25).png" alt="Logo" width="500"/>
 
 ## **Componente 2: Apache Tomcat 8.5.32**
 
 Apache Tomcat è configurato per ospitare l'applicazione web vulnerabile e ricevere il traffico da Apache HTTP Server. La configurazione di Tomcat include l'impostazione di un'applicazione web vulnerabile alla **SQL Injection**.
+
+<img src="./immagini/Screenshot (24).png" alt="Logo" width="700"/>
 
 ### **Configurazione di Tomcat**
 1. **Manager e Host Manager Accessibili**:
    - L'accesso all'interfaccia di gestione di Tomcat è abilitato, e le credenziali predefinite (`admin:admin`) sono state lasciate intatte. Questo consente di accedere e gestire le applicazioni web attraverso il **Tomcat Manager**.
    - È stato abilitato anche l'accesso al **Host Manager**, che consente di monitorare e gestire le applicazioni ospitate su Tomcat.
 
+   <img src="./immagini/Screenshot (27).png" alt="Logo" width="500"/>
+
 2. **Applicazione Web Vulnerabile alla SQL Injection**:
    - L'applicazione web ospitata su Tomcat è vulnerabile alla **SQL Injection**, un errore di programmazione comune in cui l'input dell'utente non viene correttamente validato prima di essere utilizzato in una query SQL.
    - La pagina di login è configurata per ricevere il nome utente e la password dell'utente senza un'adeguata validazione, il che consente a un attaccante di manipolare le query SQL per ottenere accesso non autorizzato.
 
-   La query SQL vulnerabile è simile alla seguente:
-   ```sql
-   SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'
-L'attaccante può inserire comandi SQL malformati per bypassare l'autenticazione, permettendo l'accesso ai dati protetti o, in alcuni casi, l'esecuzione di codice non autorizzato.
-Connessione al Database:
-Tomcat è configurato per connettersi al database MySQL utilizzando una DataSource configurata nel file context.xml di Tomcat. Le credenziali di accesso sono scritte direttamente nel file di configurazione.
-La connessione al database è stabilita come segue:
-xml
-Copy
-<Resource name="jdbc/MySQLDB"
-          auth="Container"
-          type="javax.sql.DataSource"
-          username="root"
-          password="root"
-          driverClassName="com.mysql.cj.jdbc.Driver"
-          url="jdbc:mysql://localhost:3306/mydb"
-          maxActive="100" maxIdle="30" minIdle="10"/>
---
-
+    <img src="./immagini/Screenshot (28).png" alt="Logo" width="500"/>
 
 ## **Componente 3: MySQL 5.7.29**
 
@@ -91,4 +82,6 @@ Tomcat ospita l'applicazione web vulnerabile, che include una pagina di login vu
 
 MySQL come Storage dei Dati:
 MySQL memorizza i dati sensibili, come il flag, in una tabella secrets. Dopo che l'attaccante ha ottenuto l'accesso a Tomcat tramite SQL Injection, può eseguire query dirette al database per estrarre il flag. L'accesso al database è facilitato da credenziali deboli e dalla configurazione permissiva.
+```
 
+  <img src="./immagini/Screenshot (29).png" alt="Logo" width="700"/>

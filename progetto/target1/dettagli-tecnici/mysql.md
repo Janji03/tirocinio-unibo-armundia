@@ -27,6 +27,9 @@ Nmap done: 1 IP address (1 host up) scanned in 0.19 seconds
 ***analisi***:
 La porta 3306 è aperta per il servizio MySQL.
 
+
+<img src="../immagini/30informazioni.png" alt="Logo" width="700"/>
+
 ### **1.2 Tentativo di connessione via MySQL**
 Abbiamo provato a connetterci al database MySQL da Kali usando la password di root, ma la connessione era protetta da SSL.
 
@@ -50,6 +53,7 @@ mysql -h 35.152.43.69 -u root -p --disable-ssl
 ```
 Risultato: Connessione riuscita con successo.
 
+<img src="../immagini/27mysql.png" alt="Logo" width="700"/>
 
 ### 2. **Esplorazione del database**
 
@@ -126,6 +130,8 @@ SELECT * FROM users WHERE username = 'admin';
 +----+----------+-----------+
 ```
 
+<img src="../immagini/28mysql.png" alt="Logo" width="700"/>
+
 ### 3. **Esportazione dei dati**
 
 Esplorare i database e le tabelle per identificare informazioni sensibili.
@@ -139,3 +145,5 @@ LINES TERMINATED BY '\n';
 
 ***risultato***: 
 L'export è riuscito con successo.
+
+<img src="../immagini/29mydb.png" alt="Logo" width="700"/>

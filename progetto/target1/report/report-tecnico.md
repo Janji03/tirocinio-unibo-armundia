@@ -23,9 +23,9 @@ Con l'accesso a Tomcat Manager, abbiamo notato che il servizio permetteva il car
 Questa fase ha dimostrato come la configurazione errata e l'uso di credenziali deboli possano consentire a un attaccante di ottenere il controllo completo su una macchina che esegue Tomcat, sfruttando la possibilità di caricare e eseguire codice maligno.
 
 # Testing su MySQL
-L'ultima fase del testing si è concentrata su MySQL, il database che supporta l'applicazione web. Abbiamo utilizzato Nmap per identificare la porta di MySQL (3306) e confermare che fosse aperta. Tuttavia, la connessione iniziale è stata impedita a causa della configurazione di SSL, che ha causato un errore di connessione.
+L'ultima fase del testing si è concentrata su MySQL, il database che supporta l'applicazione web. Abbiamo utilizzato Nmap per identificare la porta di MySQL (3306) e confermare che fosse aperta. 
 
-Dopo aver disabilitato SSL, siamo riusciti a connetterci al database utilizzando l'utente root. All'interno del database mydb, abbiamo identificato due tabelle principali: users e secrets. In particolare, la tabella users conteneva credenziali (username e password) in chiaro.
+Siamo riusciti a connetterci al database utilizzando l'utente root. All'interno del database mydb, abbiamo identificato due tabelle principali: users e secrets. In particolare, la tabella users conteneva credenziali (username e password) in chiaro.
 
 Abbiamo quindi eseguito una query per selezionare tutti i dati dalla tabella e successivamente abbiamo cercato di esportare i dati in un file CSV. Sebbene la configurazione del server MySQL impedisse l'esportazione diretta dei dati (a causa della protezione secure-file-priv), siamo riusciti a ottenere informazioni sensibili riguardanti gli utenti.
 
